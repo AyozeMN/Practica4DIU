@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.practica4;
 
-import com.mycompany.practica4.MousePosition;
-import org.apache.commons.collections.buffer.CircularFifoBuffer;
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
- * @author Nicolas
+ * @author Nicolas, Ayoze
  */
 public class Prac4 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Prac4
-     */
     public Prac4() {
         initComponents();
     }
@@ -29,19 +23,34 @@ public class Prac4 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ComboBox = new javax.swing.JComboBox<>();
+        ComboBoxBackgroundColor = new javax.swing.JComboBox<>();
+        ComboBoxPincelColor = new javax.swing.JComboBox<>();
         lienzo1 = new com.mycompany.practica4.lienzo();
+        jLabelNombres = new javax.swing.JLabel();
+        jLabelBg = new javax.swing.JLabel();
+        jLabelP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Op 1", "Op 2", "Op 3" }));
-        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxBackgroundColor.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        ComboBoxBackgroundColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WHITE", "BLACK", "BLUE" }));
+        ComboBoxBackgroundColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxActionPerformed(evt);
+                ComboBoxBackgroundColorActionPerformed(evt);
+            }
+        });
+
+        ComboBoxPincelColor.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        ComboBoxPincelColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BLACK", "WHITE", "RED" }));
+        ComboBoxPincelColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxPincelColorActionPerformed(evt);
             }
         });
 
         lienzo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lienzo1.setPreferredSize(new java.awt.Dimension(250, 430));
         lienzo1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 lienzo1MouseMoved(evt);
@@ -61,8 +70,17 @@ public class Prac4 extends javax.swing.JFrame {
         );
         lienzo1Layout.setVerticalGroup(
             lienzo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 248, Short.MAX_VALUE)
         );
+
+        jLabelNombres.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabelNombres.setText("Nicolás Rey Alonso - Ayoze Mesa Núñez");
+
+        jLabelBg.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabelBg.setText("CHOOSE THE BACKGROUND COLOR");
+
+        jLabelP.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabelP.setText("CHOOSE THE MOUSE COLOR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,43 +89,72 @@ public class Prac4 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lienzo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lienzo1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 331, Short.MAX_VALUE)))
+                        .addComponent(jLabelBg)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                        .addComponent(jLabelP))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabelNombres))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(ComboBoxBackgroundColor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ComboBoxPincelColor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelBg)
+                    .addComponent(jLabelP))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lienzo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboBoxBackgroundColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBoxPincelColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lienzo1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabelNombres)
+                .addGap(6, 6, 6))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Hello world");
-        int index = ComboBox.getSelectedIndex();
+    private void ComboBoxBackgroundColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxBackgroundColorActionPerformed
+        String colorB = ComboBoxBackgroundColor.getSelectedItem().toString().toUpperCase();
         
-        String a = (String) ComboBox.getSelectedItem();
-        System.out.println(a + " " + index);
-    }//GEN-LAST:event_ComboBoxActionPerformed
+        switch (colorB) {
+            case "BLUE":
+                lienzo1.setColorB(Color.BLUE);
+                break;
+            case "BLACK":
+                lienzo1.setColorB(Color.BLACK);
+                break;
+            default:
+                lienzo1.setColorB(Color.WHITE);
+                break;
+        }
+    }//GEN-LAST:event_ComboBoxBackgroundColorActionPerformed
 
     private void lienzo1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzo1MouseMoved
-        // TODO add your handling code here:
-        
         int x = evt.getX();
         int y = evt.getY();
         System.out.println("mous: " + x + " " + y);
-        lienzo1.add(new MousePosition(x,y));
+        try {
+            lienzo1.add(new MousePosition(x,y));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Prac4.class.getName()).log(Level.SEVERE, null, ex);
+        }
         lienzo1.repaint();
-        
+        try {
+            Thread.sleep(40);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Prac4.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }//GEN-LAST:event_lienzo1MouseMoved
@@ -116,10 +163,30 @@ public class Prac4 extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = evt.getX();
         int y = evt.getY();
-        lienzo1.add(new MousePosition(x,y));
+        try {
+            lienzo1.add(new MousePosition(x,y));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Prac4.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println("mous clic at: " + x + " " + y);
         
     }//GEN-LAST:event_lienzo1MouseClicked
+
+    private void ComboBoxPincelColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxPincelColorActionPerformed
+        String colorP = ComboBoxPincelColor.getSelectedItem().toString().toUpperCase();
+        
+        switch (colorP) {
+            case "RED":
+                lienzo1.setColorP(Color.RED);
+                break;
+            case "WHITE":
+                lienzo1.setColorP(Color.WHITE);
+                break;
+            default:
+                lienzo1.setColorP(Color.BLACK);
+                break;
+        }
+    }//GEN-LAST:event_ComboBoxPincelColorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,7 +224,11 @@ public class Prac4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JComboBox<String> ComboBoxBackgroundColor;
+    private javax.swing.JComboBox<String> ComboBoxPincelColor;
+    private javax.swing.JLabel jLabelBg;
+    private javax.swing.JLabel jLabelNombres;
+    private javax.swing.JLabel jLabelP;
     private com.mycompany.practica4.lienzo lienzo1;
     // End of variables declaration//GEN-END:variables
 }
